@@ -1,22 +1,11 @@
 spring:
   application:
     name: tour-service
-  datasource:
-    url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: user
-    password: 8426
-    driver-class-name: com.mysql.cj.jdbc.Driver
-  jpa:
-    properties:
-      hibernate:
-        '[format_sql]': true
-        dialect: org.hibernate.dialect.MySQLDialect
-
-mybatis:
-  mapper-locations: classpath:/mapper/**/*.xml
-  type-aliases-package: com.example.kuide.tour.dto
-  configuration:
-    map-underscore-to-camel-case: true
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration
 
 server:
   port: 8080
