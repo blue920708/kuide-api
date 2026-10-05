@@ -1,0 +1,15 @@
+.gradle/
+build/
+!**/src/main/**/build/
+out/
+.idea/
+*.iml
+.vscode/
+
+# Local environment
+.env
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

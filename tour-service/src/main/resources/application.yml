@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: tour-service
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: user
+    password: 8426
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        '[format_sql]': true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+mybatis:
+  mapper-locations: classpath:/mapper/**/*.xml
+  type-aliases-package: com.example.kuide.tour.dto
+  configuration:
+    map-underscore-to-camel-case: true
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+external:
+  api:
+    visit:
+      url: https://apis.data.go.kr/B551011/KorService2/
+      key: "2b60ac0937d652ae50c8eb032557ed1fce11654082e0627acf0e7f450861867e"
+      endpoint:
+        location: locationBasedList2
+        area: areaBasedList2
+        keyword: searchKeyword2
+        intro: detailIntro2
+        detail: detailCommon2
+        image: detailImage2
+        ldong: ldongCode2
+        lcls: lclsSystmCode2
+    
+    parking:
+      url: https://api.data.go.kr/openapi/
+      key: "2b60ac0937d652ae50c8eb032557ed1fce11654082e0627acf0e7f450861867e"
+      endpoint:
+        list: tn_pubr_prkplce_info_api
+      
