@@ -16,6 +16,17 @@
 `tour-service`는 포트 `8080`, `api-gateway`는 포트 `8082`를 사용합니다.
 관광지와 주차장 조회 API는 외부 공공 API를 호출하므로, 해당 기능 사용 시 공공 API 설정이 필요합니다.
 
+## Docker 실행
+
+저장소 루트에서 `tour-service` 이미지를 빌드하고 실행합니다.
+
+```powershell
+docker build -t kuide-tour-service .
+docker run --rm -p 8080:8080 kuide-tour-service
+```
+
+컨테이너는 데이터베이스 없이 실행되며 포트 `8080`을 사용합니다.
+
 ## REST API
 
 - `GET /api/v1/visit/ldong`: 법정동 코드 조회
