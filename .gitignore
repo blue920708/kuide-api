@@ -5,6 +5,8 @@ out/
 .idea/
 *.iml
 .vscode/
+*.class
+**/bin/
 
 # Local environment
 .env

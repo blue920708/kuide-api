@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.kuide.tour.common.ApiResult;
+import com.example.kuide.tour.common.CommonCode;
 import com.example.kuide.tour.dto.visit.VisitLclsSystmReq;
 import com.example.kuide.tour.dto.visit.VisitLdongReq;
 import com.example.kuide.tour.service.VisitService;
@@ -19,6 +20,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+
 import com.example.kuide.tour.dto.visit.VisitDetailReq;
 
 @RestController
@@ -28,6 +30,11 @@ import com.example.kuide.tour.dto.visit.VisitDetailReq;
 public class VisitController {
 
     private final VisitService visitService;
+
+    @GetMapping("/health")
+    public ApiResult<?> health() {
+        return new ApiResult<>(CommonCode.SUCCESS.SUCCESS);
+    }
 
     @GetMapping("/ldong")
     @Operation(
